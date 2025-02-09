@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Single Page Website</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+        }
+
+        header {
+            position: sticky;
+            top: 0;
+            background-color: #333;
+            z-index: 1000;
+        }
+
+        nav ul {
+            list-style-type: none;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            background-color: #333;
+        }
+
+        nav ul li {
+            margin: 0 10px;
+        }
+
+        nav ul li a {
+            text-decoration: none;
+            color: white;
+            padding: 10px 15px;
+            display: block;
+        }
+
+        nav ul li a:hover {
+            background-color: #555;
+        }
+
+        main section {
+            padding: 50px;
+            text-align: center;
+            border-bottom: 1px solid #ddd;
+        }
+
+        main section:last-of-type {
+            border-bottom: none;
+        }
+
+        .responsive-image {
+            max-width: 100%;
+            height: auto;
+            display: block;
+            margin: 20px auto;
+        }
+
+
+        @media (max-width: 600px) {
+            nav ul {
+                flex-direction: column;
+            }
+
+            nav ul li {
+                margin: 5px 0;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <header>
+        <nav>
+            <ul>
+                <li><a href="#home">Home</a></li>
+                <li><a href="#hotairballoon">Hot Air Balloon</a></li>
+                <li><a href="#venus">Venus</a></li>
+                <li><a href="#crocodile">Crocodile</a></li>
+                <li><a href="#lemon">Lemon</a></li>
+                <li><a href="#note">Note!</a></li>
+            </ul>
+        </nav>
+    </header>
+    <main>
+        <section id="home">
+            <h1>Hello!</h1>
+            <br>
+            <br>
+            <p>This website has a couple of fun random facts, go ahead and learn.</p>
+            <img src="pictures/dots.jpg" alt="Arrow" class="responsive-image">
+        </section>
+        <section id="hotairballoon">
+            <h2>Hot Air Balloon</h2>
+            <img src="pictures/hotairballoon.jpg" alt="Hot air balloon" class="responsive-image">
+            <p>A sheep, a duck and a rooster were the first passengers on a hot air balloon.</p>
+        </section>
+        <section id="venus">
+            <h2>Venus</h2>
+            <img src="pictures/venus.avif" alt="Venus" class="responsive-image">
+            <p>Venus is the only planet to spin clockwise. It travels around the sun once every 225 Earth days but it
+                rotates once every 243 days.</p>
+        </section>
+        <section id="crocodile">
+            <h2>Crocodile</h2>
+            <img src="pictures/croc.avif" alt="Crocodile" class="responsive-image">
+            <p>A crocodile cannot stick its tongue out. They have membrane that holds their tongue in place on the roof
+                of their mouth so it can't move.</p>
+        </section>
+        <section id="lemon">
+            <h2>Lemon</h2>
+            <img src="pictures/lemons.jpg" alt="Lemons" class="responsive-image">
+            <p>A lemon floats but lime sinks. This is because of their different densities.</p>
+        </section>
+        <section id="note">
+            <h2>Note</h2>
+            <img src="pictures/huom.png" alt="Note!" class="responsive-image">
+            <p>These facts are just random facts from the internet and in fact not fact-checked by the maker of this
+                fact page.</p>
+        </section>
+    </main>
+    <script>
+        document.querySelectorAll('nav ul li a').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const targetId = this.getAttribute('href').substring(1);
+                const targetElement = document.getElementById(targetId);
+                window.scrollTo({
+                    top: targetElement.offsetTop,
+                    behavior: 'smooth'
+                });
+            });
+        });
+    </script>
+</body>
+
+</html>
